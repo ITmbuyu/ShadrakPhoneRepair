@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Shadrac Tech Repair", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @*<ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Brands", "Index", "Brands")</li>
+                    <li>@Html.ActionLink("Colours", "Index", "Colours")</li>
+                    <li>@Html.ActionLink("DeviceDescriptions", "Index", "DeviceDescriptions")</li>
+                    <li>@Html.ActionLink("DeviceProblems", "Index", "DeviceProblems")</li>
+                    <li>@Html.ActionLink("DeviceStatus", "Index", "DeviceStatus")</li>
+                    <li>@Html.ActionLink("DeviceStatus WalkIns", "Index", "DeviceStatusWalkIns")</li>
+                    <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+                    <li>@Html.ActionLink("PaymentStatus", "Index", "PaymentStatus")</li>
+                    <li>@Html.ActionLink("RepairStatus", "Index", "RepairStatus")</li>
+                    <li>@Html.ActionLink("RequestPayments", "Index", "RequestPayments")</li>
+                    <li>@Html.ActionLink("Requests", "Index", "Requests")</li>
+                    <li>@Html.ActionLink("Role", "Index", "Role")</li>
+                    <li>@Html.ActionLink("Storages", "Index", "Storages")</li>
+                    <li>@Html.ActionLink("WalkInPayments", "Index", "WalkInPayments")</li>
+                    <li>@Html.ActionLink("WalkInRequests", "Index", "WalkInRequests")</li>
+                    <li>@Html.ActionLink("WalkInTimes", "Index", "WalkInTimes")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")*@
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Role", "Index", "Role")</li>
+                            <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+                            <li>@Html.ActionLink("WalkInTimes", "Index", "WalkInTimes")</li>
+                            <li>@Html.ActionLink("DeviceStatus", "Index", "DeviceStatus")</li>
+                            <li>@Html.ActionLink("DeviceStatusWalkIns", "Index", "DeviceStatus")</li>
+                            <li>@Html.ActionLink("WalkInRequests", "Index", "WalkInRequests")</li>
+                            <li>@Html.ActionLink("Payments Status", "Index", "PaymentsStatus")</li>
+                            <li>@Html.ActionLink("Payments", "Index", "Payments")</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    }
+                    if (User.IsInRole("Technician"))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Brands", "Index", "Brands")</li>
+                            <li>@Html.ActionLink("Colours", "Index", "Colours")</li>
+                            <li>@Html.ActionLink("DeviceDescriptions", "Index", "DeviceDescriptions")</li>
+                            <li>@Html.ActionLink("Storages", "Index", "Storages")</li>
+                            <li>@Html.ActionLink("DeviceProblems", "Index", "DeviceProblems")</li>
+                            <li>@Html.ActionLink("RepairStatus", "Index", "RepairStatus")</li>
+                            <li>@Html.ActionLink("Device Status", "Index", "DeviceStatus")</li>
+                            <li>@Html.ActionLink("Device Status WalkIns", "Index", "DeviceStatusWalkIns")</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    }
+                    if (User.IsInRole("Customer"))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("My Dashboard", "Index", "DeviceStatus")</li>
+                            <li>@Html.ActionLink("My WalkIn Dashboard", "Index", "DeviceStatusWalkIns")</li>
+                            <li>@Html.ActionLink("Request Repair", "Create", "Requests")</li>
+                            <li>@Html.ActionLink("Book WalkIn", "Create", "WalkInRequests")</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    }
+
+                }
+                else
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                }
+
+                @*<div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>*@
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

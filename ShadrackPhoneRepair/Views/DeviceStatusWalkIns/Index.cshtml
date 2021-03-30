@@ -1,0 +1,129 @@
+﻿@model IEnumerable<ShadrackPhoneRepair.Models.DeviceStatusWalkIns>
+@using ShadrackPhoneRepair.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Template.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table">
+        <tr>
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.Brand)*@ Device Brand
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DeviceName)*@ Device Name
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Capacity)*@ Storage Capacity
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Colour)*@ Color Of Device
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.IMEI)*@ Device IMEI Number
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.WalkInDate)*@ Day of WalkIn
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.WalkInTime)*@ WalkIn Time Slot
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DeviceProblem)*@ Device Problem
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Price)*@ Price Of Repair
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.RepairStatus.Status)*@ Repair Status
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.WalkInStatus)*@ Status Of Walk In
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.RequestDateTime)*@ Date & Time Of WalkIn
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.UserId)*@ Email
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TechnicianId)*@ Technician To Repair
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeviceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IMEI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WalkInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WalkInTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeviceProblem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RepairStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WalkInStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDateTime)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.UserId)*@
+
+                    @{
+                        ApplicationDbContext db = new ApplicationDbContext();
+                        var email = db.Users.Find(item.UserId).UserName;
+                    }
+                    @email
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.UserId)*@
+
+                    @{
+
+                        var Temail = db.Users.Find(item.UserId);
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TrackingNumber }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TrackingNumber }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TrackingNumber })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

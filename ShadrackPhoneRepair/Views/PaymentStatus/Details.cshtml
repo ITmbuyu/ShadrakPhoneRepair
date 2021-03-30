@@ -1,0 +1,27 @@
+﻿@model ShadrackPhoneRepair.Models.PaymentStatus
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Template.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PaymentStatus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PaymentStatusId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/Template.cshtml";
+}
+<div class="jumbotron">
+    <h1>Shadrac Tech Repair</h1>
+    <p class="lead">Mobile Repair, Water Damage, Screen Replacement And many more</p>
+    <span><a href="@Url.Action("Login", "Account")" class="btn btn-primary btn-lg">Sign In &raquo;</a></span>
+    <span><a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg">Sign Up &raquo;</a></span>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="filter-image">
+            <img src="~/images/work-6.jpg" alt="">
+        </div>
+        <h5>Speakers</h5>
+        <a src="~/images/work-6.jpg" class="filter-popup" data-effect="mfp-zoom-in"></a>
+        <p><a class="btn btn-default" href="@Url.Action("Login","Account ")">Learn more &raquo;</a></p>
+    </div>
+    <div class="filter-hover">
+        <div class="filter-image">
+            <img src="~/images/work-8.jpg" alt="">
+        </div>
+        <h5>Housing</h5>
+        <a src="~/images/work-8.jpg" class="filter-popup" data-effect="mfp-zoom-in"></a>
+        <p><a class="btn btn-default" href="@Url.Action("Register","Account ")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <div class="filter-hover">
+            <div class="filter-image">
+                <img src="~/images/work-5.jpg" alt="">
+            </div>
+            <h5>Camera</h5>
+            <a src="~/images/work-5.jpg" class="filter-popup" data-effect="mfp-zoom-in"></a>
+        </div>
+        <p><a class="btn btn-default"href="@Url.Action("About","Home ")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-5">
+        <div class="filter-hover">
+            <div class="filter-image">
+                <img src="~/images/work-9.jpg" alt="">
+            </div>
+            <h5>TouchPads</h5>
+            <a src="~/images/work-9.jpg" class="filter-popup" data-effect="mfp-zoom-in"></a>
+        </div>
+        <p><a class="btn btn-default" href="@Url.Action("Contact","Account ")">Learn more &raquo;</a></p>
+    </div>
+</div>
